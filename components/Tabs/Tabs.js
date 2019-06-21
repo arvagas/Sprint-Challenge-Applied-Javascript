@@ -30,17 +30,13 @@ class TabLink {
     const tabs = document.querySelectorAll('.tab')
     
     // Iterate through the NodeList removing the .active-tab class from each element
-    tabs.forEach(item => {
-      item.classList.remove('active-tab')
-    })
+    tabs.forEach(item => item.classList.remove('active-tab'))
 
     // Select all of the elements with the .card class on them
     const cards = document.querySelectorAll('.card')
 
     // Iterate through the NodeList setting the display style each one to 'none'
-    cards.forEach(item => {
-      item.style.display='none'
-    })
+    cards.forEach(item => item.style.display='none')
     
     // Add a class of ".active-tab" to this.tabElement
     this.tabElement.classList.add('active-tab')

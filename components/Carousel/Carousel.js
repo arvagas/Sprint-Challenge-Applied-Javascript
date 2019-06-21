@@ -4,17 +4,18 @@ class Carousel {
         this.left = caro.querySelector('.left-button')
         this.right = caro.querySelector('.right-button')
         this.firstImg = caro.querySelector('img')
-        this.images = caro.querySelectorAll('img')
 
-        this.firstImg.style.display='block'
+        // this.firstImg.style.display='block'
+        // this.firstImg.visibility='visible'
+        this.firstImg.classList.add('img-reveal')
 
         this.left.addEventListener('click', () => this.showImg(-1))
         this.right.addEventListener('click', () => this.showImg(1))
     }
 
     showImg(param) {
-        // images.forEach(img => img.display='none')
         const images = document.querySelectorAll('.carousel img')
+        const curIndex = index
 
         if ((index+param>=0) && (index+param<=3)) {
             index += param
@@ -24,8 +25,18 @@ class Carousel {
             index = 3
         }
 
-        images.forEach(img => img.style.display='none')
-        images[index].style.display='block'
+        images.forEach(img => img.classList.remove('img-reveal'))
+        images.forEach(img => img.classList.remove('img-reveal-left'))
+        images.forEach(img => img.classList.remove('img-reveal-right'))
+
+        if (curIndex<index) {
+            images[index].classList.add('img-reveal-right')
+        } else {
+            images[index].classList.add('img-reveal-left')
+        }
+        
+        // images.forEach(img => img.style.display='none')
+        // images[index].style.display='block'
     }
 }
 

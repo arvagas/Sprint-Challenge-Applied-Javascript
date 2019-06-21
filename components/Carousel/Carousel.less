@@ -38,4 +38,38 @@
     .width-100();
     display: none;
   }
+
+  .img-reveal {
+    display: block;
+    // animation: fadeIn 0.5s;
+    animation: fadeIn 0.5s;
+  }
+
+  .img-reveal-left {
+    display: block;
+    // animation: fadeIn 0.5s;
+    animation: slideshowL 2s;
+  }
+
+  .img-reveal-right {
+    display: block;
+    // animation: fadeIn 0.5s;
+    animation: slideshowR 2s;
+  }
 }
+
+@keyframes fadeIn {
+  0% { opacity: 0;}
+  100% { opacity: 1;}
+}
+
+@keyframes slideshowR {
+  from {margin-left: 100%}
+  to {margin-left: 0%}
+}
+
+@keyframes slideshowL {
+  from {margin-right: 100%}
+  to {margin-right: 0%}
+}
+

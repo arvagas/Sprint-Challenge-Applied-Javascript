@@ -3,14 +3,33 @@ class Carousel {
         this.caro = caro
         this.left = caro.querySelector('.left-button')
         this.right = caro.querySelector('.right-button')
+        this.firstImg = caro.querySelector('img')
         this.images = caro.querySelectorAll('img')
 
-        this.left.addEventListener('click', () => alert('working'))
-        this.right.addEventListener('click', () => alert('working'))
+        this.firstImg.style.display='block'
+
+        this.left.addEventListener('click', () => this.showImgLeft())
+        this.right.addEventListener('click', () => this.showImgRight())
     }
 
+    showImgLeft() {
+        if (index - 1 >= 0) {
+            index--
+        } else {
+            index = 3
+        }
+    }
+
+    showImgRight() {
+        if (index + 1 <= 3) {
+            index++
+        } else {
+            index = 0
+        }
+    }
 }
 
+let index = 0
 let carousel = new Carousel(document.querySelector('.carousel'))
 
 /* If You've gotten this far, you're on your own! Although we will give you some hints:

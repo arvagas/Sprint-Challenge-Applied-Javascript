@@ -8,24 +8,24 @@ class Carousel {
 
         this.firstImg.style.display='block'
 
-        this.left.addEventListener('click', () => this.showImgLeft())
-        this.right.addEventListener('click', () => this.showImgRight())
+        this.left.addEventListener('click', () => this.showImg(-1))
+        this.right.addEventListener('click', () => this.showImg(1))
     }
 
-    showImgLeft() {
-        if (index - 1 >= 0) {
-            index--
-        } else {
+    showImg(param) {
+        // images.forEach(img => img.display='none')
+        const images = document.querySelectorAll('.carousel img')
+
+        if ((index+param>=0) && (index+param<=3)) {
+            index += param
+        } else if (index+param>3) {
+            index = 0
+        } else if (index+param<0) {
             index = 3
         }
-    }
 
-    showImgRight() {
-        if (index + 1 <= 3) {
-            index++
-        } else {
-            index = 0
-        }
+        images.forEach(img => img.style.display='none')
+        images[index].style.display='block'
     }
 }
 
